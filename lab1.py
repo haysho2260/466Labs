@@ -1,4 +1,8 @@
-
+'''
+This function calculates the probability of 
+playing tennis given the following features: 
+outlook, temp, humid, wind, and tennis.
+'''
 
 def shouldPlay(outlook, temp, humid, wind):
     tennis = "yes"
