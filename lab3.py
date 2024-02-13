@@ -41,7 +41,6 @@ def hierarchicalCluster(a, lw_index, pts, points):
                 elif j > c and j > d:
                     index_j -= 1
                 b[index_j][index_i] = min(a[j][i], a[i][j])
-                print(index_j)
                 if b[index_j][index_i] < mn:
                     mn = b[index_j][index_i]
                     mn_index = (index_j, index_i)
