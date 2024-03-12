@@ -33,33 +33,34 @@ def info_gain(children, parent):
     Calculates the information gain of a given attribute 
     (parent), when used to split a dataset of children.
     """
-    
+
     # find the entropy of the parent
     parent_entropy = find_entropy(parent)
     all_info_gain = []
-    
+
     # calculate the info gain per child
     for key, lst in children.items():
-        
+
         # initialize value starting off with parent entropy
         temp_value = parent_entropy
-        
+
         # get list of choices
         choices = set(lst)
         total_len = len(parent)
 
         # calculat entropy for each option
         for choice in choices:
-            choice_indices = [index for index, value in enumerate(lst) if value == choice]
-            
+            choice_indices = [index for index,
+                              value in enumerate(lst) if value == choice]
+
             # make list from parent based on choice indices
             new_list = [parent[i] for i in choice_indices]
 
-            # subtract fraction * entropy 
+            # subtract fraction * entropy
             temp_value -= (len(new_list)/total_len) * find_entropy(new_list)
         # append new info gain
         all_info_gain.append((key, round(temp_value, 3)))
-    
+
     # return sorted list of best most to least info gain
     return sorted(all_info_gain, key=lambda x: x[1], reverse=True)
 
@@ -83,4 +84,5 @@ if "__main__" == __name__:
                 "humidity": humidity, "wind": wind}
     info_gain_list = info_gain(children, play_tennis)
     print("\n", info_gain_list)
-    print(f"\nThe max info gain is {info_gain_list[0][0]} with value {info_gain_list[0][1]}.\n")
+    print(
+        f"\nThe max info gain is {info_gain_list[0][0]} with value {info_gain_list[0][1]}.\n")

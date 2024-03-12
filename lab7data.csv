@@ -1,0 +1,8 @@
+gamma,sun,wind,hail
+0.5,4, 0,-8
+0.5,sun,sun
+0.5,sun,wind
+0.5,wind,sun
+0.5,wind,hail
+0.5,hail,wind
+0.5,hail,hail
